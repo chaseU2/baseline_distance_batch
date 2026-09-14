@@ -14,7 +14,7 @@ It can:
 - report mean/median differences and Cliff's delta;
 - calculate Benjamini–Hochberg FDR both across all pairwise tests in a metric/test and separately within each timepoint;
 - create multi-panel boxplots with individual subject points and significance brackets;
-- run from Python or YAML/CLI.
+
 
 ## Installation
 
