@@ -1,0 +1,48 @@
+metadata: /vol/jlab/MicrobiomeAnalyses/Projects/JansenVanVuuren_Coldshield/Karl/metadata_coldshield_behaviour.txt
+sample_col: sample_name
+subject_col: host_subject_id
+time_col: timepoint_numeric
+baseline_time: -1
+output_dir: /vol/jlab/MicrobiomeAnalyses/Projects/JansenVanVuuren_Coldshield/Karl/baselinebeta_results
+
+distances:
+  unweighted_unifrac: /vol/jlab/MicrobiomeAnalyses/Projects/JansenVanVuuren_Coldshield/Karl/beta_diversity/unweighted_unifrac/unweighted-unifrac-distance-matrix.qza
+
+metric_titles:
+  unweighted_unifrac: Unweighted UniFrac
+
+time_values: [-1, 1, 3, 7]
+time_labels:
+  -1: Baseline
+  1: Day 1
+  3: Day 3
+  7: Day 7
+
+duplicate_baseline: error
+missing_baseline: skip
+
+tests:
+  - name: treatment
+    group_col: description_of_treatment
+    levels: [cold, cold_radiation, warm, warm_radiation]
+    comparisons:
+      - [cold, cold_radiation]
+      - [cold, warm]
+      - [cold_radiation, warm_radiation]
+      - [warm, warm_radiation]
+
+plot:
+  q_column: q_value_fdr_bh_per_timepoint
+  alpha: 0.05
+  show_only_significant: true
+  time_order: [1, 3, 7]
+  group_colors:
+    cold: "#4C78A8"
+    cold_radiation: "#9ECAE1"
+    warm: "#E45756"
+    warm_radiation: "#F3A6A5"
+  group_labels:
+    cold: Cold
+    cold_radiation: Cold + radiation
+    warm: Warm
+    warm_radiation: Warm + radiation
